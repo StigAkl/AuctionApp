@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,6 +18,10 @@ import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement(name="person")
 @Entity
+@NamedQueries({
+	@NamedQuery(name="findByEmail", query="SELECT p FROM Person p WHERE p.email = :email")
+})
+
 @Table(name="Person")
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
