@@ -23,10 +23,10 @@
       <h:form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <h:outputLabel for="inputEmail" class="sr-only">Email address</h:outputLabel>
-        <h:inputText type="email" id="email" class="form-control" value="#{sessionController.username}" a:placeholder="Email address"></h:inputText>
+        <h:inputText type="email" id="email" class="form-control" value="#{loginView.email}" a:placeholder="Email address"></h:inputText>
         <h:outputLabel for="inputPassword" class="sr-only">Password</h:outputLabel>
-        <h:inputSecret type="password" value="#{sessionController.password}" id="inputPassword" class="form-control" a:placeholder="Password"></h:inputSecret>
-        <h:commandButton class="btn btn-lg btn-primary btn-block" action="sessionController.validateUsernamePassword()" value="login"></h:commandButton>
+        <h:inputSecret type="password" value="#{loginView.password}" id="inputPassword" class="form-control" a:placeholder="Password"></h:inputSecret>
+        <h:commandButton class="btn btn-lg btn-primary btn-block" action="#{loginView.login()}" value="login"></h:commandButton>
       </h:form>
 
     </div> 

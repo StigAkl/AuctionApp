@@ -1,11 +1,13 @@
 package ejb;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import entities.Person;
 
+@Stateless
 public class PersonEJB {
 
 	@PersistenceContext(unitName="AuctionApp")
