@@ -96,10 +96,10 @@ public class RestPopulate {
 		
 		Person p2 = new Person();
 		p2.setAddress(add2);
-		p2.setEmail("Stig@hotmail");
+		p2.setEmail("stg@hotmail.no");
 		p2.setFname("Stig");
 		p2.setLname("Tomat");
-		p2.setPassword("hunter3");
+		p2.setPassword("FB8C2E2B85CA81EB4350199FADDD983CB26AF3064614E737EA9F479621CFA57A");
 		p2.setRating(2);
 		p2.getFeedback().add(f2);
 		p2.setPhonenr("99999999");
