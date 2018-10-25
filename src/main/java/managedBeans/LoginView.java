@@ -43,7 +43,7 @@ public class LoginView implements Serializable {
 		} catch(ServletException e) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", null));
 			
-			return "login"; 
+			return "auction"; 
 		}
 		
 		Principal principal = request.getUserPrincipal(); 
@@ -78,8 +78,4 @@ public class LoginView implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
 }

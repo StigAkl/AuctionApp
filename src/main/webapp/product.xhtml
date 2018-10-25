@@ -34,6 +34,10 @@
   			<li class="list-group-item"><h:outputLabel value="Category:   "/><h:outputText value="#{productView.product.category.name}"/></li>
   			<li class="list-group-item"><h:outputLabel value="Description:   "/><h:outputText value="#{productView.product.description}"/></li>
   			<li class="list-group-item"><h:outputLabel value="Current bid:   "/><h:outputText value="#{productView.highestBid}"/></li>
+
+			<h:form>
+  				<li><h:commandButton value="Bid" action="user/bid"/></li>
+			</h:form>
   		</ul>
   		
   		</div>
