@@ -38,7 +38,7 @@ public class LoginView implements Serializable {
 	public String login() throws ServletException { 
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
-		
+	
 		if(request.isUserInRole("user")) {
 			request.logout(); 
 		}
