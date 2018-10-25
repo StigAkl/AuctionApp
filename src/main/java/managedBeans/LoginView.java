@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -17,7 +18,7 @@ import ejb.PersonEJB;
 import entities.Person;
 
 @Named(value="loginView")
-@RequestScoped
+@SessionScoped
 public class LoginView implements Serializable {
 	
 	/**
@@ -55,7 +56,7 @@ public class LoginView implements Serializable {
 		
 		sessionMap.put("User", person); 
 		
-		if(request.isUserInRole("users")) {
+		if(request.isUserInRole("user")) {
 			return "/user/loggedin"; 
 		} else {
 			return "login"; 
