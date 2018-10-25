@@ -1,8 +1,10 @@
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\ejb\PersonEJB.java
-D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Group.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Person.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\managedBeans\LoginView.java
+D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\managedBeans\ProductView.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\soap\SoapKake.java
+D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\ejb\ProductEJB.java
+D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\User_Group.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\rest\KakeService.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Category.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\ejb\RestPopulate.java
@@ -11,3 +13,4 @@ D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionA
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Feedback.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Product.java
 D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\entities\Bid.java
+D:\Dokumenter\Masters\DAT250 Advanced Software Technologies\Programming\AuctionApp\src\main\java\managedBeans\AuthenticationUtils.java
