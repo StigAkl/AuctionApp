@@ -38,7 +38,7 @@
 		<h:form>
 			<li class="list-group-item"><h4><h:outputLabel value="Place bid: " /></h4></li>
 			<li class="list-group-item"><h:inputText id="bid" class="form-control" value="#{bidView.bid}" a:placeholder="Place bid.."></h:inputText></li>
-			<li class="list-group-item"><h:commandButton value="Place bid" action="#{bidView.placeBid}"><f:ajax execute="@form" render="@all" /></h:commandButton></li>
+			<li class="list-group-item"><h:commandButton value="Place bid" class="btn btn-primary" action="#{bidView.placeBid}"><f:ajax execute="@form" render="@all" /></h:commandButton></li>
 		
 		</h:form>
 		
