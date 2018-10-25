@@ -5,8 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import entities.Group;
 import entities.Person;
+import entities.User_Group;
 
 @Stateless
 public class PersonEJB {
@@ -22,9 +22,9 @@ public class PersonEJB {
 			e.printStackTrace();
 		}
 		
-		Group group = new Group(); 
+		User_Group group = new User_Group(); 
 		group.setEmail(person.getEmail());
-		group.setGroupname(Group.USER_GROUP);
+		group.setGroupname(User_Group.USER_GROUP);
 		
 		
 		em.persist(person);

@@ -8,12 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="group")
-public class Group implements Serializable {
+@Table(name="user_group")
+public class User_Group implements Serializable {
 
 	private static final long serialVersionUID = 5806834199889041928L;
 	
-	public static final String USER_GROUP = "users"; 
+	public static final String USER_GROUP = "user"; 
 	
 	@Id
 	@Column(nullable=false, length=255)
@@ -23,9 +23,9 @@ public class Group implements Serializable {
 	private String groupname; 
 	
 	
-	public Group() {}
+	public User_Group() {}
 	
-	public Group(String email, String groupname) {
+	public User_Group(String email, String groupname) {
 		this.email = email;
 		this.groupname = groupname; 
 	}

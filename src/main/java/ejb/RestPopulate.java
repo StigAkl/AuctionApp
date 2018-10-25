@@ -19,6 +19,7 @@ import entities.Category;
 import entities.Feedback;
 import entities.Person;
 import entities.Product;
+import entities.User_Group;
 
 
 @Startup
@@ -94,6 +95,10 @@ public class RestPopulate {
 		p1.addBid(b1);
 		p1.addProduct(prod2);
 		
+		User_Group ug = new User_Group();
+		ug.setEmail(p1.getEmail());
+		ug.setGroupname(User_Group.USER_GROUP);
+		
 		Person p2 = new Person();
 		p2.setAddress(add2);
 		p2.setEmail("stg@hotmail.no");
@@ -112,6 +117,7 @@ public class RestPopulate {
 		em.persist(p2);
 		em.persist(prod1);
 		em.persist(prod2);
+		em.persist(ug);
 		
 	}
 
