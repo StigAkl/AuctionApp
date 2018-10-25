@@ -1,5 +1,7 @@
 package ejb;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +22,7 @@ import entities.Feedback;
 import entities.Person;
 import entities.Product;
 import entities.User_Group;
+import managedBeans.AuthenticationUtils;
 
 
 @Startup
@@ -83,12 +86,22 @@ public class RestPopulate {
 		prod2.setSold(true);
 		prod2.addBid(b2);
 		
+		
+		
 		Person p1 = new Person();
 		p1.setAddress(add1);
 		p1.setEmail("haakon@hotmail");
 		p1.setFname("Haakon");
 		p1.setLname("Reme");
-		p1.setPassword("hunter2");
+		try {
+			p1.setPassword(AuthenticationUtils.encodeSHA256("hunter2"));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		p1.setRating(3);
 		p1.getFeedback().add(f1);
 		p1.setPhonenr("84736283");

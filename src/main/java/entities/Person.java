@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 	@NamedQuery(name="findByEmail", query="SELECT p FROM Person p WHERE p.email = :email")
 })
 
-@Table(name="Person")
+@Table(name="person")
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
