@@ -2,7 +2,9 @@ package managedBeans;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 
 import ejb.ProductEJB;
 import entities.Product;
@@ -15,14 +17,30 @@ public class ProductView {
 	@EJB
 	ProductEJB ejb; 
 	
-	private int id; 
+	private Integer id = -1; 
 	private int highestBid; 
 	private Product product; 
 
 	
 	public void findProductById() {
+		
+		if(this.id == -1) {
+			return; 
+		}
+		
 		product = ejb.findById(this.id);
 		highestBid = ejb.findHighestBidOnProduct(this.product); 
+	}
+	
+	public String bid() {
+		
+		FacesContext context = FacesContext.getCurrentInstance(); 
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
+		
+		if(request.isUserInRole("user")) 
+			return "user/bid?faces-redirect=true&pid=" + id; 
+		
+		return "login?faces-redirect=true&error=biderror"; 
 	}
 	
 	public void setId(int id) {

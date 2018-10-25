@@ -34,16 +34,21 @@ public class LoginView implements Serializable {
 	
 	private Person person; 
 	
-	public String login() { 
+	
+	public String login() throws ServletException { 
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
+		
+		if(request.isUserInRole("user")) {
+			request.logout(); 
+		}
 		
 		try {
 			request.login(email,  password);
 		} catch(ServletException e) {
-			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed!", null));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 			
-			return "auction"; 
+			return "login"; 
 		}
 		
 		Principal principal = request.getUserPrincipal(); 
@@ -57,9 +62,9 @@ public class LoginView implements Serializable {
 		sessionMap.put("User", person); 
 		
 		if(request.isUserInRole("user")) {
-			return "/user/loggedin"; 
+			return "/user/loggedin?faces-redirect=true"; 
 		} else {
-			return "login"; 
+			return "login?faces-redirect=true&error=true"; 
 		}
 	}
 
