@@ -23,7 +23,7 @@
 			<div class="list-group">
     		<ui:repeat value="#{AuctionView.products}" var="product">
             
-    		<a href="product.xhtml?id=#{product.id}" class="list-group-item">#{product.name}: #{product.category.name}</a>
+    		<a href="/AuctionApp/product.xhtml?id=#{product.id}" class="list-group-item">#{product.name}: #{product.category.name}</a>
 			</ui:repeat>
 			
 			</div>

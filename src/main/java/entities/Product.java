@@ -40,7 +40,7 @@ public class Product implements Serializable {
 	private String description;
 	
 	@XmlTransient
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	private Category category;
 	
 	private boolean published;

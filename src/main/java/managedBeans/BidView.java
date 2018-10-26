@@ -37,7 +37,7 @@ public class BidView {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 	
 	
-		return "product?faces-redirect=true&pid="+pid; 
+		return "/auction"; 
 	}
 
 	public int getBid() {

@@ -126,6 +126,7 @@ public class RestPopulate {
 		
 		em.persist(add1);
 		em.persist(cat1);
+		em.persist(cat2);
 		em.persist(p1);
 		em.persist(p2);
 		em.persist(prod1);
