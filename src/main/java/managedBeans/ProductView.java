@@ -34,13 +34,8 @@ public class ProductView {
 	
 	public String bid() {
 		
-		FacesContext context = FacesContext.getCurrentInstance(); 
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
+		return "user/bid?faces-redirect=true&pid=" + id; 
 		
-		if(request.isUserInRole("user")) 
-			return "user/bid?faces-redirect=true&pid=" + id; 
-		
-		return "login?faces-redirect=true&error=biderror"; 
 	}
 	
 	public void setId(int id) {

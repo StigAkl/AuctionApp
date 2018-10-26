@@ -2,7 +2,13 @@ package rest;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.jms.JMSConnectionFactory;
+import javax.jms.JMSContext;
+import javax.jms.JMSSessionMode;
+import javax.jms.Topic;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -15,6 +21,7 @@ import javax.ws.rs.core.MediaType;
 import entities.Address;
 import entities.Bid;
 import entities.Product;
+import jms.Publisher2;
 
 
 
@@ -25,11 +32,17 @@ public class KakeService {
 	@PersistenceContext(unitName = "AuctionApp")
 	EntityManager em;
 	
+    private Publisher2 topic = new Publisher2();
+    
+
+	
+	@SuppressWarnings("unchecked")
 	@GET
 	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-	public List<Product> getProductt() {
+	public List<Product> getProductt() throws Exception {
 	 
 		Query query = em.createQuery("Select p from Product p"); 
+		topic.activateTopic(query.getResultList());
 		return query.getResultList(); 
 		
 	}

@@ -1,6 +1,7 @@
 package managedBeans;
 
 import java.io.Serializable;
+import java.net.URI;
 import java.security.Principal;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,7 +40,9 @@ public class LoginView implements Serializable {
 	public String login() throws ServletException { 
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest(); 
-	
+		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			
+		
 		if(request.isUserInRole("user")) {
 			request.logout(); 
 		}
@@ -48,24 +52,21 @@ public class LoginView implements Serializable {
 		} catch(ServletException e) {
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
 			
-			return "login"; 
+			return "login";
 		}
 		
 		Principal principal = request.getUserPrincipal(); 
 		
 		this.person = ejb.findById(principal.getName()); 
 		
-		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		
 		Map<String, Object> sessionMap = externalContext.getSessionMap();
 		
 		sessionMap.put("User", person); 
 		
-		if(request.isUserInRole("user")) {
-			return "/user/loggedin?faces-redirect=true"; 
-		} else {
-			return "login?faces-redirect=true&error=true"; 
-		}
+
+		return "auction";
+
 	}
 
 	public String getEmail() {

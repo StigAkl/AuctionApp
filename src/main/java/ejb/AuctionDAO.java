@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import entities.Bid;
+import entities.Category;
 import entities.Person;
 import entities.Product;
 
@@ -48,6 +49,18 @@ public class AuctionDAO {
 			return "Bid is the highest at " + bid;
 		}
 		
+	}
+	
+	public Category findCategory(String cat) {
+		return em.find(Category.class, cat);
+	}
+	
+	public Person findPerson(String email) {
+		return em.find(Person.class, email);
+	}
+	
+	public void addProduct(Product prod) {
+		em.persist(prod);
 	}
 
 }

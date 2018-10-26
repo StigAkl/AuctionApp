@@ -27,7 +27,6 @@ public class BidView {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-		if(request.isUserInRole("user")) {
 			Principal principal = request.getUserPrincipal(); 
 			String email = principal.getName(); 
 			
@@ -36,11 +35,9 @@ public class BidView {
 			Flash flash = context.getExternalContext().getFlash();
 			flash.setKeepMessages(true);
 			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
-		} else {
-			return "login"; 
-		}
 	
-		return "bid?faces-redirect=true&pid="+pid; 
+	
+		return "product?faces-redirect=true&pid="+pid; 
 	}
 
 	public int getBid() {
